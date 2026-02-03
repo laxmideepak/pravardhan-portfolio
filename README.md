@@ -1,5 +1,5 @@
 Laxmideepak Nelapatla
-<!-- This GitHub profile README was generated based on the information from Laxmideepak Nelapatla’s résumé. The goal is to showcase professional experience, current interests, contact details, technical skills and GitHub statistics in a concise, attractive format. --> <h1 align="center">Hi 👋 I’m Laxmideepak Nelapatla</h1> <h3 align="center"> Full‑stack engineer building scalable, cloud‑native applications with Python, TypeScript, React &amp; AWS. </h3> <p align="left"> <img src="https://komarev.com/ghpvc/?username=laxmideepak&label=Profile%20views&color=0e75b6&style=flat" alt="laxmideepak" /> </p>
+<!-- This GitHub profile README was generated based on the information from Laxmideepak Nelapatla’s résumé. The goal is to showcase professional experience, current interests, contact details, technical skills and GitHub statistics in a concise, attractive format. --> <h1 align="center">Hi 👋 I’m Laxmideepak Nelapatla</h1> <h3 align="center"> Software Development Engineer specializing in ML &amp; AI. </h3> <p align="left"> <img src="https://komarev.com/ghpvc/?username=laxmideepak&label=Profile%20views&color=0e75b6&style=flat" alt="laxmideepak" /> </p>
 About me
 
 ‑ 🔭 I’m currently working on the core e‑commerce platform at Goto Optical.
