@@ -134,7 +134,7 @@ export function LocationWidget() {
       className="fixed left-1/2 top-[70px] z-40 -translate-x-1/2"
       initial={shouldReduceMotion ? undefined : { opacity: 0, y: -10, scale: 0.95 }}
       animate={shouldReduceMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
-      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: 0.8 }}
+      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] as const, delay: 0.8 }}
     >
       <div className="flex items-center gap-3 rounded-full border border-[var(--line)] bg-[var(--surface)]/80 px-5 py-2.5 shadow-md backdrop-blur-md">
         {/* Pulsing dot */}

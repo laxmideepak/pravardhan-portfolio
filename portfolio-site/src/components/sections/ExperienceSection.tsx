@@ -18,7 +18,7 @@ const cardVariants = {
     filter: "blur(0px)",
     transition: {
       duration: 0.65,
-      ease: [0.22, 1, 0.36, 1],
+      ease: [0.22, 1, 0.36, 1] as const,
       delay: i * 0.12,
     },
   }),
@@ -29,7 +29,7 @@ const barDraw = {
   hidden: { scaleY: 0 },
   visible: {
     scaleY: 1,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: 0.25 },
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const, delay: 0.25 },
   },
 };
 
@@ -45,7 +45,7 @@ const listItem = {
     opacity: 1,
     x: 0,
     filter: "blur(0px)",
-    transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] as const },
   },
 };
 
@@ -153,7 +153,7 @@ export function ExperienceSection({ experience }: ExperienceSectionProps) {
                   viewport={{ once: true }}
                   transition={{
                     duration: 0.8,
-                    ease: [0.22, 1, 0.36, 1],
+                    ease: [0.22, 1, 0.36, 1] as const,
                     delay: 0.35 + index * 0.1,
                   }}
                 />

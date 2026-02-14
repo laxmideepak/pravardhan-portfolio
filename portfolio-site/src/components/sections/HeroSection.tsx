@@ -24,7 +24,7 @@ const fadeBlurUp = {
     opacity: 1,
     y: 0,
     filter: "blur(0px)",
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
   },
 };
 
@@ -43,7 +43,7 @@ const slideRight = {
     opacity: 1,
     x: 0,
     rotate: 0,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.3 },
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const, delay: 0.3 },
   },
 };
 
@@ -52,7 +52,7 @@ const ctaSlideUp = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
   },
 };
 
@@ -88,7 +88,7 @@ function RotatingTitle() {
           initial={{ y: "100%", opacity: 0 }}
           animate={{ y: "0%", opacity: 1 }}
           exit={{ y: "-100%", opacity: 0 }}
-          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] as const }}
         >
           {titles[index]}
         </motion.span>
@@ -180,7 +180,7 @@ export function HeroSection({ name, contact }: HeroSectionProps) {
                       animate={shouldReduceMotion ? undefined : { y: 0, rotateX: 0, opacity: 1 }}
                       transition={{
                         duration: 0.35,
-                        ease: [0.22, 1, 0.36, 1],
+                        ease: [0.22, 1, 0.36, 1] as const,
                         delay: i * 0.025,
                       }}
                     >
@@ -199,7 +199,7 @@ export function HeroSection({ name, contact }: HeroSectionProps) {
                       animate={shouldReduceMotion ? undefined : { y: 0, rotateX: 0, opacity: 1 }}
                       transition={{
                         duration: 0.35,
-                        ease: [0.22, 1, 0.36, 1],
+                        ease: [0.22, 1, 0.36, 1] as const,
                         delay: (displayLines[0].length + i) * 0.025,
                       }}
                     >

@@ -42,7 +42,7 @@ function CountUp({ stat, inView }: { stat: Stat; inView: boolean }) {
     if (!inView) return;
     const controls = animate(mv, stat.value, {
       duration: 1.8,
-      ease: [0.22, 1, 0.36, 1],
+      ease: [0.22, 1, 0.36, 1] as const,
     });
     return controls.stop;
   }, [inView, mv, stat.value]);
@@ -87,7 +87,7 @@ function ActivityBars() {
           animate={{ height: `${h}%` }}
           transition={{
             duration: shouldReduceMotion ? 0 : 0.8,
-            ease: [0.22, 1, 0.36, 1],
+            ease: [0.22, 1, 0.36, 1] as const,
           }}
         />
       ))}

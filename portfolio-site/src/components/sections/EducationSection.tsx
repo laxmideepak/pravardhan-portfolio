@@ -19,7 +19,7 @@ const cardVariants = {
     scale: 1,
     transition: {
       duration: 0.7,
-      ease: [0.22, 1, 0.36, 1],
+      ease: [0.22, 1, 0.36, 1] as const,
       delay: i * 0.15,
     },
   }),
@@ -105,7 +105,7 @@ function EducationCard({ item, index }: { item: EducationItem; index: number }) 
         initial={{ scaleX: 0 }}
         whileInView={!shouldReduceMotion ? { scaleX: 1 } : undefined}
         viewport={{ once: true }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.4 + index * 0.15 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] as const, delay: 0.4 + index * 0.15 }}
       />
     </motion.article>
   );
