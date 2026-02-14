@@ -1,0 +1,351 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+  --bg: #060c1a;
+  --bg-deep: #040814;
+  --surface: #0e172b;
+  --surface-strong: #131f36;
+  --surface-soft: #0b1324;
+  --line: rgba(152, 170, 210, 0.28);
+  --line-strong: rgba(190, 205, 240, 0.48);
+  --ink: #eef3ff;
+  --muted: #9facc8;
+  --brand: #72a7ff;
+  --brand-strong: #7de4d2;
+  --hero-accent-start: #86f2d4;
+  --hero-accent-end: #86a5ff;
+  --shadow-card: 0 14px 34px rgba(4, 8, 20, 0.45);
+  --cta-bg: #f2f6ff;
+  --cta-text: #08101f;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f2f5fb;
+  --bg-deep: #e8eef8;
+  --surface: #ffffff;
+  --surface-strong: #f0f4fb;
+  --surface-soft: #f7f9fd;
+  --line: rgba(95, 116, 157, 0.22);
+  --line-strong: rgba(70, 93, 141, 0.38);
+  --ink: #13233f;
+  --muted: #52627f;
+  --brand: #2355dc;
+  --brand-strong: #0f8f9d;
+  --hero-accent-start: #1c7a74;
+  --hero-accent-end: #2e54d3;
+  --shadow-card: 0 14px 30px rgba(17, 31, 58, 0.12);
+  --cta-bg: #10213d;
+  --cta-text: #f7fbff;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background: var(--bg);
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    color: var(--ink);
+    background:
+      radial-gradient(circle at 12% 12%, rgba(125, 228, 210, 0.12), transparent 42%),
+      radial-gradient(circle at 88% 20%, rgba(114, 167, 255, 0.14), transparent 40%),
+      linear-gradient(180deg, var(--bg) 0%, var(--bg-deep) 100%);
+    font-family: var(--font-body), sans-serif;
+    transition: background-color 0.24s ease, color 0.24s ease;
+    position: relative;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    background-image:
+      linear-gradient(to right, color-mix(in srgb, var(--line) 30%, transparent) 1px, transparent 1px),
+      linear-gradient(to bottom, color-mix(in srgb, var(--line) 24%, transparent) 1px, transparent 1px);
+    background-size: 72px 72px;
+    opacity: 0.2;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-heading), sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .skip-link {
+    position: absolute;
+    left: -999px;
+    top: 1rem;
+    z-index: 50;
+    border-radius: 999px;
+    background: var(--ink);
+    color: var(--bg);
+    padding: 0.7rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+  }
+
+  .skip-link:focus-visible {
+    left: 1rem;
+  }
+}
+
+@layer components {
+  .section-shell {
+    padding-inline: 1.25rem;
+  }
+
+  .section-heading {
+    font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.08;
+  }
+
+  .hero-accent {
+    background: linear-gradient(90deg, var(--hero-accent-start), var(--hero-accent-end));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .premium-panel {
+    border: 1px solid var(--line);
+    border-radius: 1.25rem;
+    background:
+      linear-gradient(160deg, color-mix(in srgb, var(--surface) 95%, transparent), color-mix(in srgb, var(--surface-strong) 88%, transparent));
+    box-shadow: var(--shadow-card);
+  }
+
+  .experience-accent {
+    position: absolute;
+    left: 0;
+    top: 1.2rem;
+    bottom: 1.2rem;
+    width: 3px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, var(--brand-strong), var(--brand));
+  }
+
+  .skill-chip {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: var(--surface-soft);
+    color: var(--muted);
+    padding: 0.36rem 0.72rem;
+    font-size: 0.82rem;
+    font-weight: 500;
+    transition: border-color 0.18s ease, color 0.18s ease, transform 0.18s ease;
+  }
+
+  .skill-chip:hover {
+    border-color: var(--line-strong);
+    color: var(--ink);
+    transform: translateY(-1px);
+  }
+
+  /* ── Sarvam.ai Navbar — floating rounded bar ── */
+  .sarvam-bar {
+    background: #2b3429;
+    color-scheme: dark;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Orange CTA — "Experience Sarvam" */
+  .sarvam-btn-orange {
+    background: #e8734a;
+    border: 1px solid #e8734a;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+  }
+
+  .sarvam-btn-orange:hover {
+    background: #d4653e;
+    box-shadow: 0 4px 14px rgba(232, 115, 74, 0.4);
+    transform: translateY(-1px);
+  }
+
+  /* White button — "Talk to Sales" */
+  .sarvam-btn-white {
+    background: #ffffff;
+    color: #1a1a1a;
+    border-color: #d4d4d4;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+  }
+
+  .sarvam-btn-white:hover {
+    background: #f0f0f0;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    transform: translateY(-1px);
+  }
+}
+
+@layer base {
+  :focus-visible {
+    outline: 3px solid var(--brand);
+    outline-offset: 2px;
+  }
+}
+
+/* ── Scroll Progress Bar ── */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 9999;
+  background: linear-gradient(90deg, var(--hero-accent-start), var(--hero-accent-end));
+  transform-origin: 0%;
+}
+
+/* ── Floating Gradient Orbs ── */
+.floating-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.18;
+}
+
+.floating-orb-1 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, var(--hero-accent-start), transparent 70%);
+  top: -10%;
+  left: -8%;
+  animation: orbFloat1 18s ease-in-out infinite;
+}
+
+.floating-orb-2 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, var(--hero-accent-end), transparent 70%);
+  top: 40%;
+  right: -10%;
+  animation: orbFloat2 22s ease-in-out infinite;
+}
+
+.floating-orb-3 {
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, var(--brand-strong), transparent 70%);
+  bottom: 5%;
+  left: 20%;
+  animation: orbFloat3 20s ease-in-out infinite;
+}
+
+@keyframes orbFloat1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(60px, 40px) scale(1.1); }
+  66% { transform: translate(-30px, 70px) scale(0.95); }
+}
+
+@keyframes orbFloat2 {
+  0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  33% { transform: translate(-50px, -30px) scale(1.08) rotate(5deg); }
+  66% { transform: translate(40px, -60px) scale(0.92) rotate(-3deg); }
+}
+
+@keyframes orbFloat3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(40px, -50px) scale(1.12); }
+  66% { transform: translate(-60px, 20px) scale(0.9); }
+}
+
+/* ── Hero Shimmer Gradient ── */
+.hero-shimmer {
+  background-size: 200% 100%;
+  animation: shimmerSweep 3s ease-in-out infinite;
+}
+
+@keyframes shimmerSweep {
+  0% { background-position: 100% 0; }
+  50% { background-position: 0% 0; }
+  100% { background-position: 100% 0; }
+}
+
+/* ── Glow Pulse on CTA ── */
+.glow-pulse {
+  position: relative;
+}
+
+.glow-pulse::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--hero-accent-start), var(--hero-accent-end));
+  opacity: 0;
+  z-index: -1;
+  animation: glowPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.04); }
+}
+
+/* ── Live Dot Pulse (Dev Dashboard) ── */
+.live-dot::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: #34d399;
+  opacity: 0;
+  animation: liveDotPulse 2s ease-in-out infinite;
+}
+
+@keyframes liveDotPulse {
+  0%, 100% { opacity: 0; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(2.2); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .floating-orb {
+    animation: none !important;
+  }
+
+  .hero-shimmer {
+    animation: none !important;
+  }
+
+  .glow-pulse::before {
+    animation: none !important;
+  }
+
+  .live-dot::after {
+    animation: none !important;
+  }
+}
