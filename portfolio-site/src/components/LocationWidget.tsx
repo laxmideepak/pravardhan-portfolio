@@ -129,33 +129,48 @@ export function LocationWidget() {
   const tempDisplay = state.temperatureC != null ? `${Math.round(state.temperatureC)}°C` : null;
   const tzShort = formatTimezoneShort(state.timezone);
 
-  return (
-    <motion.div
-      className="fixed left-1/2 top-[72px] z-40 -translate-x-1/2 sm:top-[70px]"
-      initial={shouldReduceMotion ? undefined : { opacity: 0, y: -10, scale: 0.95 }}
-      animate={shouldReduceMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
-      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] as const, delay: 0.8 }}
-    >
-      <div className="flex max-w-[calc(100vw-2rem)] items-center gap-2 rounded-full border border-[var(--line)] bg-[var(--surface)]/80 px-3 py-1.5 shadow-md backdrop-blur-md sm:gap-3 sm:px-5 sm:py-2.5">
-        {/* Pulsing dot */}
-        <span className="relative flex h-2 w-2 shrink-0">
-          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-          <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
-        </span>
+  const pill = (
+    <div className="flex items-center gap-2 rounded-full border border-[var(--line)] bg-[var(--surface)]/80 px-3 py-1.5 shadow-md backdrop-blur-md sm:gap-3 sm:px-5 sm:py-2.5">
+      <span className="relative flex h-2 w-2 shrink-0">
+        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+        <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+      </span>
+      <p className="flex min-w-0 items-center gap-1.5 text-[10px] font-medium text-[var(--muted)] sm:gap-2.5 sm:text-[13px]" suppressHydrationWarning>
+        <span className="truncate text-[var(--ink)]">{state.city}</span>
+        <span>•</span>
+        <span className="tabular-nums text-[var(--brand-strong)]">{timeText || "--:--"}</span>
+        <span className="hidden sm:inline">{tzShort}</span>
+        {tempDisplay && (
+          <>
+            <span>•</span>
+            <span>{tempDisplay}</span>
+          </>
+        )}
+      </p>
+    </div>
+  );
 
-        <p className="flex min-w-0 items-center gap-1.5 text-[10px] font-medium text-[var(--muted)] sm:gap-2.5 sm:text-[13px]" suppressHydrationWarning>
-          <span className="truncate text-[var(--ink)]">{state.city}</span>
-          <span>•</span>
-          <span className="tabular-nums text-[var(--brand-strong)]">{timeText || "--:--"}</span>
-          <span className="hidden sm:inline">{tzShort}</span>
-          {tempDisplay && (
-            <>
-              <span>•</span>
-              <span>{tempDisplay}</span>
-            </>
-          )}
-        </p>
-      </div>
-    </motion.div>
+  return (
+    <>
+      {/* Mobile: inline, centered, part of page flow */}
+      <motion.div
+        className="flex justify-center pt-2 pb-1 sm:hidden"
+        initial={shouldReduceMotion ? undefined : { opacity: 0, y: -10 }}
+        animate={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] as const, delay: 0.8 }}
+      >
+        {pill}
+      </motion.div>
+
+      {/* Desktop: fixed floating pill below navbar */}
+      <motion.div
+        className="fixed left-1/2 top-[70px] z-40 hidden -translate-x-1/2 sm:block"
+        initial={shouldReduceMotion ? undefined : { opacity: 0, y: -10, scale: 0.95 }}
+        animate={shouldReduceMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] as const, delay: 0.8 }}
+      >
+        {pill}
+      </motion.div>
+    </>
   );
 }

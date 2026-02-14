@@ -30,7 +30,7 @@ export default function Home() {
       <FloatingOrbs />
       <LocationWidget />
       <SiteHeader name={resumeData.name} />
-      <main id="main-content" className="relative z-10 pt-16 pb-10">
+      <main id="main-content" className="relative z-10 pt-14 pb-10 sm:pt-16">
         <HeroSection
           name={resumeData.name}
           contact={resumeData.contact}
