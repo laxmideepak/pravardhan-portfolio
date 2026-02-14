@@ -131,7 +131,7 @@ export function LocationWidget() {
 
   return (
     <motion.div
-      className="fixed left-1/2 top-[62px] z-40 -translate-x-1/2 sm:top-[70px]"
+      className="fixed left-1/2 top-[72px] z-40 -translate-x-1/2 sm:top-[70px]"
       initial={shouldReduceMotion ? undefined : { opacity: 0, y: -10, scale: 0.95 }}
       animate={shouldReduceMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] as const, delay: 0.8 }}
