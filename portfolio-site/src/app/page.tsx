@@ -7,7 +7,7 @@ import { SiteHeader } from "@/components/sections/SiteHeader";
 import { SkillsSection } from "@/components/sections/SkillsSection";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { FloatingOrbs } from "@/components/FloatingOrbs";
-import { LocationWidget } from "@/components/LocationWidget";
+import { LocationWidget, LocationProvider } from "@/components/LocationWidget";
 import { resumeData } from "@/data/resume";
 
 export default function Home() {
@@ -22,6 +22,7 @@ export default function Home() {
   };
 
   return (
+    <LocationProvider>
     <div className="relative overflow-x-clip">
       <a href="#main-content" className="skip-link">
         Skip to main content
@@ -43,5 +44,6 @@ export default function Home() {
       <SiteFooter name={resumeData.name} email={resumeData.contact.email} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
     </div>
+    </LocationProvider>
   );
 }

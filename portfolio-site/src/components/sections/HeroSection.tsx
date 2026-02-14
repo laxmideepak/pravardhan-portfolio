@@ -5,6 +5,7 @@ import type { ContactInfo } from "@/types/resume";
 import { motion, useReducedMotion, AnimatePresence } from "framer-motion";
 import { MagneticButton } from "@/components/MagneticButton";
 import { DevDashboard } from "@/components/DevDashboard";
+import { LocationPillMobile } from "@/components/LocationWidget";
 
 interface HeroSectionProps {
   name: string;
@@ -118,6 +119,8 @@ export function HeroSection({ name, contact }: HeroSectionProps) {
 
   return (
     <section id="home" className="section-shell pb-10 pt-10 sm:pb-14 sm:pt-14 md:pt-20" aria-labelledby="hero-heading">
+      {/* Location pill — mobile only, inline in flow */}
+      <LocationPillMobile />
       <div className="mx-auto grid w-full max-w-6xl gap-8 md:grid-cols-[1.45fr_1fr] md:items-center">
         {/* Left column — staggered reveal */}
         <M
