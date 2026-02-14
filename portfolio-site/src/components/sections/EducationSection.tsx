@@ -78,17 +78,17 @@ function EducationCard({ item, index }: { item: EducationItem; index: number }) 
         />
       )}
 
-      <div className="relative flex gap-5">
+        <div className="relative flex gap-4 sm:gap-5">
         {/* Big icon */}
-        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl border border-[var(--line)] bg-[var(--surface-strong)] text-2xl">
+        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[var(--line)] bg-[var(--surface-strong)] text-xl sm:h-14 sm:w-14 sm:text-2xl">
           {getIcon(item.degree)}
         </div>
 
         <div className="min-w-0">
-          <h3 className="text-xl font-semibold tracking-tight text-[var(--ink)] md:text-2xl">
+          <h3 className="text-lg font-semibold tracking-tight text-[var(--ink)] sm:text-xl md:text-2xl">
             {item.degree}
           </h3>
-          <p className="mt-1.5 text-sm font-semibold text-[var(--brand-strong)]">{item.institution}</p>
+          <p className="mt-1.5 text-sm font-semibold text-[var(--brand-strong)] [overflow-wrap:anywhere]">{item.institution}</p>
           <p className="mt-1 inline-flex items-center gap-1.5 text-xs text-[var(--muted)]">
             <svg className="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>
             {item.location}

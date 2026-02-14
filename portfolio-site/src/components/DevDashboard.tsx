@@ -115,7 +115,7 @@ export function DevDashboard() {
       </p>
 
       {/* Main 2x2 grid */}
-      <div className="mt-5 grid grid-cols-2 gap-3">
+      <div className="mt-5 grid grid-cols-2 gap-2 sm:gap-3">
         {mainStats.map((stat) => (
           <div
             key={stat.label}
@@ -124,7 +124,7 @@ export function DevDashboard() {
             <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--muted)]">
               {stat.label}
             </p>
-            <p className="mt-1 text-xl font-bold tabular-nums text-[var(--ink)]">
+            <p className="mt-1 text-lg font-bold tabular-nums text-[var(--ink)] sm:text-xl">
               <CountUp stat={stat} inView={inView} />
             </p>
           </div>
@@ -132,7 +132,7 @@ export function DevDashboard() {
       </div>
 
       {/* Bottom row */}
-      <div className="mt-3 grid grid-cols-2 gap-3">
+      <div className="mt-2 grid grid-cols-2 gap-2 sm:mt-3 sm:gap-3">
         {bottomStats.map((stat) => (
           <div
             key={stat.label}

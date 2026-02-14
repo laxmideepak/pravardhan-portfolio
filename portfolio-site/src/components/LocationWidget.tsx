@@ -131,19 +131,19 @@ export function LocationWidget() {
 
   return (
     <motion.div
-      className="fixed left-1/2 top-[70px] z-40 -translate-x-1/2"
+      className="fixed left-1/2 top-[70px] z-40 hidden -translate-x-1/2 sm:block"
       initial={shouldReduceMotion ? undefined : { opacity: 0, y: -10, scale: 0.95 }}
       animate={shouldReduceMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] as const, delay: 0.8 }}
     >
-      <div className="flex items-center gap-3 rounded-full border border-[var(--line)] bg-[var(--surface)]/80 px-5 py-2.5 shadow-md backdrop-blur-md">
+      <div className="flex max-w-[calc(100vw-2rem)] items-center gap-3 rounded-full border border-[var(--line)] bg-[var(--surface)]/80 px-4 py-2 shadow-md backdrop-blur-md sm:px-5 sm:py-2.5">
         {/* Pulsing dot */}
         <span className="relative flex h-2 w-2 shrink-0">
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
           <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
         </span>
 
-        <p className="flex items-center gap-2.5 text-[13px] font-medium text-[var(--muted)]" suppressHydrationWarning>
+        <p className="flex min-w-0 items-center gap-2 text-[12px] font-medium text-[var(--muted)] sm:gap-2.5 sm:text-[13px]" suppressHydrationWarning>
           <span className="truncate text-[var(--ink)]">{state.city}</span>
           <span>•</span>
           <span className="tabular-nums text-[var(--brand-strong)]">{timeText || "--:--"}</span>

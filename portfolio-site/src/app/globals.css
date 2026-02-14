@@ -109,7 +109,13 @@
 
 @layer components {
   .section-shell {
-    padding-inline: 1.25rem;
+    padding-inline: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .section-shell {
+      padding-inline: 1.25rem;
+    }
   }
 
   .section-heading {
@@ -151,9 +157,10 @@
     border: 1px solid var(--line);
     background: var(--surface-soft);
     color: var(--muted);
-    padding: 0.36rem 0.72rem;
+    padding: 0.5rem 0.85rem;
     font-size: 0.82rem;
     font-weight: 500;
+    min-height: 2.5rem;
     transition: border-color 0.18s ease, color 0.18s ease, transform 0.18s ease;
   }
 

@@ -117,7 +117,7 @@ export function HeroSection({ name, contact }: HeroSectionProps) {
   const displayLines = displayText.split("\n");
 
   return (
-    <section id="home" className="section-shell pb-14 pt-14 md:pt-20" aria-labelledby="hero-heading">
+    <section id="home" className="section-shell pb-10 pt-10 sm:pb-14 sm:pt-14 md:pt-20" aria-labelledby="hero-heading">
       <div className="mx-auto grid w-full max-w-6xl gap-8 md:grid-cols-[1.45fr_1fr] md:items-center">
         {/* Left column — staggered reveal */}
         <M
@@ -131,7 +131,7 @@ export function HeroSection({ name, contact }: HeroSectionProps) {
           {/* Badge — spring pop */}
           <motion.div
             {...(!shouldReduceMotion && { variants: springPop })}
-            className="inline-flex items-center gap-2 rounded-full border border-[var(--line)] bg-[var(--surface)] px-4 py-1.5"
+            className="inline-flex items-center gap-2 rounded-full border border-[var(--line)] bg-[var(--surface)] px-3 py-2 sm:px-4"
           >
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
@@ -153,7 +153,7 @@ export function HeroSection({ name, contact }: HeroSectionProps) {
           {/* Name — swaps to "Software Engineer" on hover */}
           <motion.h1
             id="hero-heading"
-            className="mt-1 cursor-pointer select-none text-4xl font-bold leading-[1.05] tracking-[-0.03em] md:text-6xl lg:text-7xl"
+            className="mt-1 cursor-pointer select-none text-3xl font-bold leading-[1.05] tracking-[-0.03em] sm:text-4xl md:text-6xl lg:text-7xl"
             style={{ perspective: "600px" }}
             onMouseEnter={handleEnter}
             onMouseLeave={handleLeave}
@@ -213,7 +213,7 @@ export function HeroSection({ name, contact }: HeroSectionProps) {
 
           {/* Rotating title */}
           <motion.p
-            className="mt-4 text-xl font-semibold md:text-2xl"
+            className="mt-4 text-lg font-semibold sm:text-xl md:text-2xl"
             {...(!shouldReduceMotion && { variants: fadeBlurUp })}
           >
             <RotatingTitle />
@@ -221,7 +221,7 @@ export function HeroSection({ name, contact }: HeroSectionProps) {
 
           {/* Tagline — punchier copy */}
           <motion.p
-            className="mt-4 max-w-xl text-base leading-8 text-[var(--muted)] md:text-lg"
+            className="mt-4 max-w-xl text-sm leading-7 text-[var(--muted)] sm:text-base sm:leading-8 md:text-lg"
             {...(!shouldReduceMotion && { variants: fadeBlurUp })}
           >
             I build systems that don&apos;t break at 3 AM. 6+ years turning complex business logic into clean,

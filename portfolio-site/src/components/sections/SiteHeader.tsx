@@ -56,7 +56,7 @@ export function SiteHeader({ name }: SiteHeaderProps) {
       <header
         className={`sarvam-bar mx-auto max-w-[1200px] rounded-2xl transition-shadow duration-300 ${scrolled ? "shadow-[0_8px_30px_rgba(0,0,0,0.3)]" : "shadow-[0_4px_20px_rgba(0,0,0,0.15)]"}`}
       >
-        <div className="flex items-center justify-between px-6 py-3">
+        <div className="flex items-center justify-between px-4 py-3 sm:px-6">
           {/* Logo — left */}
           <a
             href="#home"
@@ -116,7 +116,7 @@ export function SiteHeader({ name }: SiteHeaderProps) {
             <ThemeToggle />
             <button
               type="button"
-              className="flex h-9 w-9 flex-col items-center justify-center gap-[5px]"
+              className="flex h-11 w-11 flex-col items-center justify-center gap-[5px]"
               aria-expanded={isOpen}
               aria-controls="mobile-nav"
               aria-label="Toggle menu"
@@ -137,7 +137,7 @@ export function SiteHeader({ name }: SiteHeaderProps) {
                 <li key={item.href}>
                   <a
                     href={item.href}
-                    className={`flex items-center gap-2 rounded-xl px-3 py-2.5 text-sm font-semibold uppercase tracking-[0.04em] text-white transition hover:bg-white/10 ${activeSection === item.href ? "bg-white/10" : ""}`}
+                    className={`flex items-center gap-2 rounded-xl px-3 py-3 text-sm font-semibold uppercase tracking-[0.04em] text-white transition hover:bg-white/10 ${activeSection === item.href ? "bg-white/10" : ""}`}
                     onClick={() => setIsOpen(false)}
                   >
                     {item.label}

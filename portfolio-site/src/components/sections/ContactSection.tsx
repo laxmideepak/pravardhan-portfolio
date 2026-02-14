@@ -79,7 +79,7 @@ function CopyButton({ text }: { text: string }) {
     <button
       type="button"
       onClick={handleCopy}
-      className="ml-auto shrink-0 rounded-lg border border-[var(--line)] bg-[var(--surface)] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-[var(--muted)] transition hover:border-[var(--brand)] hover:text-[var(--ink)]"
+      className="ml-auto shrink-0 rounded-lg border border-[var(--line)] bg-[var(--surface)] px-3 py-2 text-[10px] font-semibold uppercase tracking-wide text-[var(--muted)] transition hover:border-[var(--brand)] hover:text-[var(--ink)] sm:px-2.5 sm:py-1"
       aria-label={`Copy ${text}`}
     >
       {copied ? "✓ Copied" : "Copy"}
@@ -131,31 +131,31 @@ export function ContactSection({ contact }: ContactSectionProps) {
             </div>
 
             {/* Terminal body */}
-            <div className="space-y-3 p-5 font-mono text-sm">
+            <div className="space-y-3 overflow-x-auto p-4 font-mono text-xs sm:p-5 sm:text-sm">
               {/* Email */}
-              <motion.div className="flex items-center gap-3" {...(!shouldReduceMotion && { variants: itemVariants })}>
-                <span className="text-[var(--brand-strong)]">$</span>
-                <span className="text-[var(--muted)]">email</span>
-                <span className="text-[var(--ink)]">
+              <motion.div className="flex items-center gap-2 sm:gap-3" {...(!shouldReduceMotion && { variants: itemVariants })}>
+                <span className="shrink-0 text-[var(--brand-strong)]">$</span>
+                <span className="hidden shrink-0 text-[var(--muted)] sm:inline">email</span>
+                <span className="min-w-0 truncate text-[var(--ink)]">
                   <TypingText text={contact.email} inView={inView} delay={200} />
                 </span>
                 <CopyButton text={contact.email} />
               </motion.div>
 
               {/* Phone */}
-              <motion.div className="flex items-center gap-3" {...(!shouldReduceMotion && { variants: itemVariants })}>
-                <span className="text-[var(--brand-strong)]">$</span>
-                <span className="text-[var(--muted)]">phone</span>
-                <span className="text-[var(--ink)]">
+              <motion.div className="flex items-center gap-2 sm:gap-3" {...(!shouldReduceMotion && { variants: itemVariants })}>
+                <span className="shrink-0 text-[var(--brand-strong)]">$</span>
+                <span className="hidden shrink-0 text-[var(--muted)] sm:inline">phone</span>
+                <span className="min-w-0 truncate text-[var(--ink)]">
                   <TypingText text={contact.phone} inView={inView} delay={1200} />
                 </span>
                 <CopyButton text={contact.phone} />
               </motion.div>
 
               {/* Status */}
-              <motion.div className="flex items-center gap-3" {...(!shouldReduceMotion && { variants: itemVariants })}>
-                <span className="text-[var(--brand-strong)]">$</span>
-                <span className="text-[var(--muted)]">status</span>
+              <motion.div className="flex items-center gap-2 sm:gap-3" {...(!shouldReduceMotion && { variants: itemVariants })}>
+                <span className="shrink-0 text-[var(--brand-strong)]">$</span>
+                <span className="hidden shrink-0 text-[var(--muted)] sm:inline">status</span>
                 <span className="inline-flex items-center gap-1.5 text-emerald-400">
                   <span className="relative flex h-1.5 w-1.5">
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
