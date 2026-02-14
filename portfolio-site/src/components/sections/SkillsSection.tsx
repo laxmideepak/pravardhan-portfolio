@@ -24,7 +24,7 @@ const chipContainer = {
 
 const chipVariants = {
   hidden: { opacity: 0, scale: 0.6 },
-  visible: { opacity: 1, scale: 1, transition: { type: "spring", stiffness: 350, damping: 18 } },
+  visible: { opacity: 1, scale: 1, transition: { type: "spring" as const, stiffness: 350, damping: 18 } },
 };
 
 export function SkillsSection({ skills }: SkillsSectionProps) {

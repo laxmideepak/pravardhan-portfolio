@@ -54,7 +54,7 @@ const dotPop = {
   hidden: { scale: 0 },
   visible: {
     scale: 1,
-    transition: { type: "spring", stiffness: 500, damping: 20 },
+    transition: { type: "spring" as const, stiffness: 500, damping: 20 },
   },
 };
 
